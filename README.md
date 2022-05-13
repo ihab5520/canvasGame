@@ -1,3 +1,1 @@
 # FirstProjectSnakeGame
-# FirstProjectSnakeGame
-# canvasGame
