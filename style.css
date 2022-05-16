@@ -1,3 +1,20 @@
+.discription {
+    font-size: 40px;
+    color : blue;
+    font-weight: 1000;
+    text align-self: border: ;
+
+}
+
+
 #canvas{
-    border: 2px green solid;
+    border: 5px rgb(0, 6, 0) solid;
+}
+
+#score {
+    font-size: 40px;
+    color: red;
+    font-style: italic;
+    text-decoration-style: dotted;
+    font-weight: 1000;
 }
