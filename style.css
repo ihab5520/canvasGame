@@ -1,14 +1,20 @@
 .discription {
     font-size: 40px;
-    color : blue;
+    color : rgb(3, 3, 251);
     font-weight: 1000;
     text align-self: border: ;
 
 }
 
+#btn_start {
+    font-size: 40px;
+    color: rgb(17, 252, 5);
+    background-color: blueviolet;
+}
 
 #canvas{
-    border: 5px rgb(0, 6, 0) solid;
+    border: 5px rgb(3, 254, 3) solid;
+  
 }
 
 #score {
@@ -18,3 +24,4 @@
     text-decoration-style: dotted;
     font-weight: 1000;
 }
+

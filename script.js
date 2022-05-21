@@ -66,25 +66,25 @@ function change_direction ( event )
     const goingRight = dx === 10;
     const goingDown = dy === 10;
 
-    if ( keyPressed == LEFT_KEY ) // && !goingRight
+    if ( keyPressed == LEFT_KEY && !goingRight ) //
     {
         dx = -10;
         dy = 0;
     }
 
-    if ( keyPressed == UP_KEY ) //&& !goingDown 
+    if ( keyPressed == UP_KEY && !goingDown ) //
     {
         dx = 0;
         dy = -10;
     }
 
-    if ( keyPressed == RIGHT_KEY ) //&& !goingLeft
+    if ( keyPressed == RIGHT_KEY && !goingLeft) //
     {
         dx = 10;
         dy = 0;
     }
     
-    if ( keyPressed == DOWN_KEY ) //&& !goingUP
+    if ( keyPressed == DOWN_KEY && !goingUP) //
     {
         dx = 0;
         dy = 10;
@@ -144,25 +144,46 @@ function damageWallOrItself ()
 
 document.addEventListener("keydown",change_direction)
 
-
+let gameIsRunning = false;
 function runGame ()
 {
-    setTimeout( function onTick ()
-    {
-        if ( damageWallOrItself() )
+    if (gameIsRunning){
+        setTimeout( function onTick ()
         {
-           // alert("Game Over Try Again")
-           document.getElementById( "score" ).innerHTML = "Score :"+ score+"<br/>Game Over Try Again";
-
-            return;   
-        } 
-        resetGame();
-        putFood();
-        drawSnake();
-        moveSnake();
-        runGame();
-    },300);    
+            if ( damageWallOrItself())
+            {
+               // alert("Game Over Try Again")
+               document.getElementById( "score" ).innerHTML = "Score :"+ score+"<br/>Game Over Try Again";
+                gameIsRunning = false;
+                return;
+            }
+            resetGame();
+            putFood();
+            drawSnake();
+            moveSnake();
+            runGame();
+        },120);
+    }
+   
 }
 
-generate_food();
-runGame();
+function start ()
+{
+    if (gameIsRunning){
+        return;
+    }else{
+        gameIsRunning = true;
+        dx = 10;
+        dy = 0;
+        snake = [
+            { x: 100, y: 20 },
+            { x: 90, y: 20 },
+            { x: 80, y: 20 },
+            { x: 70, y: 20 }
+        ]
+        document.getElementById("score").innerHTML = "Score : 0";
+        generate_food();
+        runGame();
+    }
+   
+}
