@@ -25,6 +25,7 @@
 
 body{
     color: blue;
-    background-image: url("./images.jfif");
+    background-size: cover;
+    background-image: url("./img/images.jfif");
     background-repeat: no-repeat;
 }
